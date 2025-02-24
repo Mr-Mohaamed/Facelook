@@ -197,8 +197,10 @@ function AttachmentPreview({
   attachment: { file, mediaId, isUploading },
   onRemoveClick,
 }: AttachmentPreviewProps) {
-  const src = URL.createObjectURL(file);
-
+  // const src = URL.createObjectURL(file);
+  const src = mediaId
+    ? `https://utfs.io/f/${mediaId}`
+    : URL.createObjectURL(file);
   return (
     <div
       className={cn("relative mx-auto size-fit", isUploading && "opacity-50")}
